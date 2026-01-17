@@ -41,7 +41,7 @@ Para usar esta plantilla necesitas tener instalado:
 
 1.  **Clona este repositorio:**
     ```bash
-    git clone [https://github.com/uvargascur-ship-it/PlantillaAPA7LAtex.git](https://github.com/uvargascur-ship-it/PlantillaAPA7LAtex.git)
+        https://github.com/uvargascur-ship-it/PlantillaAPA7LAtex.git
     ```
 2.  **Abre el proyecto:** Ejecuta el archivo `plantilla.tex` en tu editor.
 3.  **Compila:** Presiona `F5` (en TeXstudio) o el botón de "Build".
