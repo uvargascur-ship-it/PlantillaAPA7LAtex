@@ -1,0 +1,246 @@
+% =========================================================================
+%      PLANTILLA MAESTRA DE TESIS - UNMSM (FACULTAD DE CIENCIAS ECONÓMICAS)
+%                             Normas APA 7ma Edición
+% =========================================================================
+% Autor: Ulises Vargas
+% Versión: 1.0 (2026)
+% =========================================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% -------------------------------------------------------------------------
+% 1. CODIFICACIÓN E IDIOMA
+% -------------------------------------------------------------------------
+\usepackage[utf8]{inputenc} % Permite escribir tildes y ñ directamente
+\usepackage[T1]{fontenc}    % Asegura la correcta salida de caracteres en el PDF
+\usepackage[spanish, es-tabla, es-nodecimaldot]{babel}
+% es-tabla: Cambia "Cuadro" por "Tabla" (Requisito APA).
+% es-nodecimaldot: Usa punto (.) para decimales en lugar de coma.
+
+% -------------------------------------------------------------------------
+% 2. FORMATO DE PÁGINA Y TIPOGRAFÍA (APA 7)
+% -------------------------------------------------------------------------
+% Márgenes: 2.54 cm (1 pulgada) en los 4 lados
+\usepackage[margin=2.54cm]{geometry}
+
+% Fuente: Times New Roman (para texto y matemáticas)
+\usepackage{mathptmx}
+
+% Espaciado: Doble espacio estricto
+\usepackage{setspace}
+\doublespacing
+
+% Sangría: 1.27 cm (1/2 pulgada) en la primera línea
+\setlength{\parindent}{1.27cm}
+
+% -------------------------------------------------------------------------
+% 3. ENCABEZADOS Y NUMERACIÓN
+% -------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt} % Ajuste técnico para evitar advertencias
+\pagestyle{fancy}
+\fancyhf{} % Limpia estilos por defecto
+
+% Encabezado Izquierdo: Título Corto (Running Head) - MÁX 50 CARACTERES
+\fancyhead[L]{TÍTULO CORTO DE SU INVESTIGACIÓN}
+
+% Encabezado Derecho: Número de página
+\fancyhead[R]{\thepage}
+
+% Sin línea horizontal decorativa (Norma APA)
+\renewcommand{\headrulewidth}{0pt}
+
+% -------------------------------------------------------------------------
+% 4. JERARQUÍA DE TÍTULOS (5 NIVELES APA)
+% -------------------------------------------------------------------------
+\usepackage{titlesec}
+
+% Nivel 1: Centrado, Negrita
+\titleformat{\section}[block]{\centering\normalfont\normalsize\bfseries}{}{0em}{}
+% Nivel 2: Alineado Izquierda, Negrita
+\titleformat{\subsection}[block]{\raggedright\normalfont\normalsize\bfseries}{}{0em}{}
+% Nivel 3: Alineado Izquierda, Negrita, Cursiva
+\titleformat{\subsubsection}[block]{\raggedright\normalfont\normalsize\bfseries\itshape}{}{0em}{}
+% Nivel 4: Sangría, Negrita, Punto final (Texto sigue en la línea)
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{}{0em}{}[.]
+\titlespacing{\paragraph}{1.27cm}{0pt}{1em}
+% Nivel 5: Sangría, Negrita, Cursiva, Punto final (Texto sigue en la línea)
+\titleformat{\subparagraph}[runin]{\normalfont\normalsize\bfseries\itshape}{}{0em}{}[.]
+\titlespacing{\subparagraph}{1.27cm}{0pt}{1em}
+
+% -------------------------------------------------------------------------
+% 5. TABLAS Y FIGURAS
+% -------------------------------------------------------------------------
+\usepackage{booktabs} % Para tablas profesionales (sin líneas verticales)
+\usepackage{caption}  % Para personalizar los títulos (captions)
+
+% Configuración de etiquetas (Tabla X / Figura X) y separadores
+\DeclareCaptionLabelSeparator*{newline}{\\} % Salto de línea entre "Tabla 1" y el Título
+
+% Configuración global para Figuras y Tablas
+\captionsetup{
+    labelsep=newline,        % Salto de línea
+    justification=raggedright, % Alineado a la izquierda
+    singlelinecheck=false,   % No centrar aunque sea corto
+    labelfont=bf,            % Etiqueta en Negrita (Tabla 1)
+    textfont=it,             % Título en Cursiva (Título de la tabla)
+    skip=0.5em               % Espacio
+}
+
+% -------------------------------------------------------------------------
+% 6. ÍNDICES (CONTENIDO, TABLAS, FIGURAS)
+% -------------------------------------------------------------------------
+\usepackage{tocloft}
+
+% Eliminar numeración automática de secciones en el índice (1. Introducción -> Introducción)
+\setcounter{secnumdepth}{0}
+
+% Personalización del Índice General (TOC)
+\renewcommand{\contentsname}{Tabla de contenido}
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries} % Centrado
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+% Personalización del Índice de Tablas (LOT)
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand{\cftlottitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cfttabpresnum}{Tabla }     % Agrega "Tabla " antes del número
+\renewcommand{\cfttabaftersnum}{.}        % Agrega punto final
+\setlength{\cfttabnumwidth}{2.5cm}        % Espacio para la etiqueta
+
+% Personalización del Índice de Figuras (LOF)
+\renewcommand{\listfigurename}{Índice de figuras}
+\renewcommand{\cftloftitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftfigpresnum}{Figura }    % Agrega "Figura " antes del número
+\renewcommand{\cftfigaftersnum}{.}
+\setlength{\cftfignumwidth}{2.5cm}
+
+% Líneas de puntos (...)
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% -------------------------------------------------------------------------
+% 7. PAQUETES ADICIONALES Y UTILITARIOS
+% -------------------------------------------------------------------------
+\usepackage{pdflscape}            % Para páginas horizontales
+\usepackage{amsmath,amsfonts,amssymb} % Matemáticas avanzadas
+\usepackage{graphicx}             % Imágenes
+\usepackage{float}                % Para usar la posición [H]
+\usepackage{csquotes}             % Comillas inteligentes
+\usepackage{hyperref}             % Enlaces e hipervínculos
+% Configuración de colores de enlaces (Negro para imprimir, funcional digitalmente)
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
+
+% -------------------------------------------------------------------------
+% 8. GESTIÓN BIBLIOGRÁFICA
+% -------------------------------------------------------------------------
+\usepackage[natbibapa]{apacite} % Estilo APA nativo
+\bibliographystyle{apacite}
+\usepackage{bookmark}           % Mejora los marcadores del PDF
+
+% =========================================================================
+%                           INICIO DEL DOCUMENTO
+% =========================================================================
+\begin{document}
+
+% --- 1. PORTADA ---
+\pagenumbering{gobble}    % Apaga la numeración
+\newgeometry{margin=3cm}  % Márgenes centrados para portada
+% Asegúrese de tener el archivo Caratula.tex en la misma carpeta
+\include{Caratula}        
+\restoregeometry          % Restaura márgenes APA
+\clearpage
+
+% --- 2. ÍNDICES PRELIMINARES ---
+\newpage
+\tableofcontents % Índice General
+
+\newpage
+\addcontentsline{toc}{section}{Índice de tablas}
+\listoftables    % Índice de Tablas
+
+\newpage
+\addcontentsline{toc}{section}{Índice de figuras}
+\listoffigures   % Índice de Figuras
+
+% --- 3. RESUMEN Y ABSTRACT ---
+\newpage
+% La numeración y el encabezado se activan automáticamente aquí (Configuración fancyhdr)
+
+% Resumen en Español
+\section*{Resumen}
+\addcontentsline{toc}{section}{Resumen}
+
+\noindent % IMPORTANTE: Sin sangría al inicio del resumen
+[Escriba aquí el resumen de su investigación en español. Recuerde que debe ser un solo párrafo, sin sangría, de entre 150 y 250 palabras, describiendo el objetivo, método, resultados y conclusiones principales.]
+
+\vspace{0.5cm}
+
+% Palabras clave con sangría
+\indent \textit{\textbf{Palabras clave:}} palabra 1, palabra 2, palabra 3, palabra 4.
+
+% Abstract en Inglés
+\newpage
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+\noindent % IMPORTANTE: Sin sangría
+[Write here the abstract of your research in English. It must match the content of the Spanish abstract.]
+
+\vspace{0.5cm}
+
+\indent \textit{\textbf{Keywords:}} keyword 1, keyword 2, keyword 3, keyword 4.
+
+\newpage
+
+% =========================================================================
+%                       CUERPO DEL DOCUMENTO
+% =========================================================================
+\pagenumbering{arabic} % Asegura numeración arábiga (1, 2, 3...)
+\setcounter{page}{1}   % La Introducción comienza en la página 1
+
+% --- CAPÍTULO 1 ---
+\section{Introducción}
+[Escriba aquí la introducción del trabajo...]
+
+% --- CAPÍTULO 2 ---
+\section{Revisión de Literatura}
+[Escriba aquí el marco teórico y antecedentes...]
+
+% --- CAPÍTULO 3 ---
+\section{Metodología}
+[Escriba aquí la descripción de datos, modelo econométrico y métodos...]
+
+% --- CAPÍTULO 4 ---
+\section{Resultados}
+[Inserte aquí sus tablas y figuras con los resultados...]
+
+% --- CAPÍTULO 5 ---
+\section{Discusión y Conclusiones}
+[Escriba aquí la discusión final...]
+
+% =========================================================================
+%                       REFERENCIAS BIBLIOGRÁFICAS
+% =========================================================================
+\newpage
+% Asegúrese de tener su archivo 'bibliografia.bib' en la misma carpeta
+\bibliography{bibliografia} 
+
+% =========================================================================
+%                       APÉNDICES
+% =========================================================================
+\newpage
+\appendix % Cambia la numeración a letras (A, B, C...)
+% Reinicia contadores de tablas/figuras por sección (Tabla A1, A2...)
+\renewcommand{\thetable}{\thesection\arabic{table}}
+\renewcommand{\thefigure}{\thesection\arabic{figure}}
+
+% --- Apéndice A ---
+\section{Instrumentos y Datos Adicionales}
+\label{apendice:A}
+\setcounter{table}{0} 
+\setcounter{figure}{0}
+
+[Incluya aquí material complementario, demostraciones matemáticas o tablas extra.]
+
+\end{document}
